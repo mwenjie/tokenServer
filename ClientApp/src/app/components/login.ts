@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Component({
   selector: "login",
   template: `
-    <div>Hello</div>
+    <div></div>
   `,
   styles: [
     `

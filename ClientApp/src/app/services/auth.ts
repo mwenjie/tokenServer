@@ -7,7 +7,7 @@ import { UserManager, UserManagerSettings, User } from "oidc-client";
 export class AuthService {
   private _access_token = "";
   private manager = new UserManager(getClientSettings());
-  private user: User | null;
+  private _user: User | null;
 
   constructor(protected http: HttpClient) {}
 
@@ -24,12 +24,15 @@ export class AuthService {
   }
 
   async completeAuthentication() {
-    this.user = await this.manager.signinRedirectCallback();
-    console.log(this.user);
+    this._user = await this.manager.signinRedirectCallback();
   }
 
   get access_token() {
     return this._access_token;
+  }
+
+  get user() {
+    return this._user;
   }
 }
 

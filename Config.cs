@@ -129,6 +129,26 @@ namespace myauth1
                         IdentityServerConstants.StandardScopes.Profile,
                         "api2.full_access"
                     }
+                },
+                     // OpenID Connect hybrid flow client (MVC)
+                new Client
+                {
+                    ClientId = "WebMonitoring",
+                    ClientName = "Gumtree Web Monitoring",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris           = { "http://localhost:1337/auth-callback" },
+                    PostLogoutRedirectUris = { "http://localhost:1337" },
+                    AllowedCorsOrigins =     { "http://localhost:1337" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api2.full_access"
+                    }
                 }
             };
         }
